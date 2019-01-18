@@ -1,0 +1,50 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Open1999查詢
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css', integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/', crossorigin='anonymous')
+    link(rel='stylesheet', href='./css/all.css')
+  body
+    .wrap
+      header
+        .banner
+          nav.manu.clearfix
+            ul.clearfix
+              li
+                a(href='#') 首頁
+              li
+                a(href='#') 目前
+          .banner-text
+            | 歡迎來到Open1999
+      section.select
+        select#areaSelect
+          option(value='請選擇行政區') ----請選擇行政區----
+        #areabtn
+      section
+        p.description
+          | 圖示說明:
+          br
+          |                     已完成：
+          i.fas.fa-check-circle
+          |                     待確認：
+          i.fas.fa-question-circle
+          |                     GoogleMap：
+          i.fas.fa-map-marker-alt
+        .other_hidden
+          table.table.bg-table
+            thead.table-header
+              tr
+                th(width='10%') 發布時間
+                th(width='10%') 發生區域
+                th(width='10%') 通報單位
+                th(width='10%') 通報地址
+                th(width='40%') 問題回報
+                th(width='10%') 當前狀態
+                th(width='10%') 位置查看
+            tbody#app
+      footer.footer
+        | 資料來源:高雄市政府OPEN平台
+    script(src='./js/all.js')
