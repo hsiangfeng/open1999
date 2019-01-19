@@ -50,19 +50,20 @@ function selectDow() {
     _data.forEach(item => {
         areaList.push(item.ZipName_);
     });
-    console.log(areaList);
+
     let areaNew = [];
     areaList.forEach(item => {
         if (areaNew.indexOf(item) == -1) {
             areaNew.push(item);
         }
     });
-    console.log(areaNew);
+
     let str = '';
     areaNew.forEach(item => {
         str += `<option value="${item}">${item}</option>`;
     });
     areaSelectId.innerHTML = str;
+    
     let btnStr ='';
     areaNew.forEach((item,index)=>{
         if(index < 4){
