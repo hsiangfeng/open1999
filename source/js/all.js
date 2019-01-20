@@ -37,7 +37,7 @@ function upDataIndexList(name) {
                     str += `<tr class="bg-gray"><td>${item.Save_Date_}</td><td>${item.ZipName_}</td><td>${item.UnitName_}</td><td>${item.address_}</td><td>${item.BeforeDesc_}</td><td>${item.StatusName_}</td><td><a href="${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a></td></li>`;
                     break;
                 case "處理完成":
-                    str += `<tr class="bg-green"><td>${item.Save_Date_}</td><td>${item.ZipName_}</td><td>${item.UnitName_}</td><td>${item.address_}</td><td>${item.BeforeDesc_}</td><td><i class="fas fa-check-circle fa-2x"></i></td><td><a href="$${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a></td></li>`;
+                    str += `<tr class="bg-green"><td>${item.Save_Date_}</td><td>${item.ZipName_}</td><td>${item.UnitName_}</td><td>${item.address_}</td><td>${item.BeforeDesc_}</td><td><i class="fas fa-check-circle fa-2x"></i></td><td><a href="${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a></td></li>`;
                     break;
             }
         }
