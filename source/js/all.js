@@ -1,5 +1,5 @@
-var xhr = new XMLHttpRequest();
-var _data = [];
+const xhr = new XMLHttpRequest();
+let _data = [];
 xhr.open('get', 'https://soweb.kcg.gov.tw/open1999/ServiceRequestsQuery.asmx/ServiceRequestsQuery?startdate=&enddate=');
 xhr.send(null);
 xhr.onload = function () {
