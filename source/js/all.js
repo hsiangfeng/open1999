@@ -1,5 +1,5 @@
 const xhr = new XMLHttpRequest();
-let _data = [];
+let _data = []; 
 xhr.open('get', 'https://soweb.kcg.gov.tw/open1999/ServiceRequestsQuery.asmx/ServiceRequestsQuery?startdate=&enddate=');
 xhr.send(null);
 xhr.onload = function () {
@@ -31,13 +31,37 @@ function upDataIndexList(name) {
         if (item.ZipName_ == name) {
             switch (item.StatusName_) {
                 case "待確認":
-                    str += `<tr class="bg-warning"><td>${item.Save_Date_}</td><td>${item.ZipName_}</td><td>${item.UnitName_}</td><td>${item.address_}</td><td>${item.BeforeDesc_}</td><td><i class="fas fa-question-circle fa-2x"></i></td><td><a href="${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a></td></li>`;
+                    str += `
+                    <tr class="bg-warning"><td>${item.Save_Date_}</td>
+                    <td>${item.ZipName_}</td><td>${item.UnitName_}</td>
+                    <td>${item.address_}</td>
+                    <td>${item.BeforeDesc_}</td>
+                    <td><i class="fas fa-question-circle fa-2x"></i></td>
+                    <td><a href="${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a>
+                    </td>
+                    `;
                     break;
                 case "解除管制":
-                    str += `<tr class="bg-gray"><td>${item.Save_Date_}</td><td>${item.ZipName_}</td><td>${item.UnitName_}</td><td>${item.address_}</td><td>${item.BeforeDesc_}</td><td>${item.StatusName_}</td><td><a href="${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a></td></li>`;
+                    str += `
+                    <tr class="bg-gray"><td>${item.Save_Date_}</td>
+                    <td>${item.ZipName_}</td>
+                    <td>${item.UnitName_}</td>
+                    <td>${item.address_}</td>
+                    <td>${item.BeforeDesc_}</td>
+                    <td>${item.StatusName_}</td>
+                    <td><a href="${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a>
+                    </td>`;
                     break;
                 case "處理完成":
-                    str += `<tr class="bg-green"><td>${item.Save_Date_}</td><td>${item.ZipName_}</td><td>${item.UnitName_}</td><td>${item.address_}</td><td>${item.BeforeDesc_}</td><td><i class="fas fa-check-circle fa-2x"></i></td><td><a href="${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a></td></li>`;
+                    str += `
+                    <tr class="bg-green"><td>${item.Save_Date_}</td>
+                    <td>${item.ZipName_}</td>
+                    <td>${item.UnitName_}</td>
+                    <td>${item.address_}</td>
+                    <td>${item.BeforeDesc_}</td>
+                    <td><i class="fas fa-check-circle fa-2x"></i></td>
+                    <td><a href="${GooglemapUrl + 'dir/' + item.Lat_ + ',' + item.Lng_ + '/@' + item.Lat_ + ',' + item.Lng_ + ',' + distance}" target="_blank"><i class="fas fa-map-marker-alt fa-2x"></i></a>
+                    </td>`;
                     break;
             }
         }
