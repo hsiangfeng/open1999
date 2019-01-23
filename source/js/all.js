@@ -1,12 +1,19 @@
-const xhr = new XMLHttpRequest();
-let _data = []; 
-xhr.open('get', 'https://soweb.kcg.gov.tw/open1999/ServiceRequestsQuery.asmx/ServiceRequestsQuery?startdate=&enddate=');
-xhr.send(null);
-xhr.onload = function () {
-    _data = JSON.parse(xhr.responseText);
-    selectDow()
+let open1999Url = 'https://soweb.kcg.gov.tw/open1999/ServiceRequestsQuery.asmx/ServiceRequestsQuery?startdate=&enddate=';
+let data = [];
+function ajaxFetch() {
+    fetch(open1999Url, { method: 'get' })
+        .then(response => {
+            return response.json();
+        })
+        .then(item => {
+            data = item;
+            selectDow();
+        })
+        .catch(err => {
+            console.log('錯誤:' + err)
+        })
 }
-
+ajaxFetch()
 let areaSelectId = document.getElementById('areaSelect');
 let areabtnId = document.getElementById('areabtn');
 let addId = document.getElementById('app');
@@ -27,7 +34,7 @@ function upDataIndexList(name) {
     let str = '';
     let GooglemapUrl = "https://www.google.com/maps/";
     let distance = '20z';
-    _data.forEach(item => {
+    data.forEach(item => {
         if (item.ZipName_ == name) {
             switch (item.StatusName_) {
                 case "待確認":
@@ -71,7 +78,7 @@ function upDataIndexList(name) {
 
 function selectDow() {
     let areaList = [];
-    _data.forEach(item => {
+    data.forEach(item => {
         areaList.push(item.ZipName_);
     });
 
@@ -95,6 +102,4 @@ function selectDow() {
         }
     })
     areabtnId.innerHTML = btnStr;
-
 }
-
